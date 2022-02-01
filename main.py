@@ -1,6 +1,6 @@
 import time
 
-from selenium import webdriver
+import webdriver from selenium
 
 
 driver = webdriver.Chrome(r'C:\\chromedriver\\chromedriver.exe') # Optional argument, if not specified will search path.
@@ -9,11 +9,9 @@ driver.get('https://www.nintendo.com/en_CA/games/game-guide/#filter/:q=&dFR[gene
 
 time.sleep(5) # Let the user actually see something!
 
-search_box = driver.find_element_by_name('q')
+driver.execute_script("window.scrollTo(0, document.body.scrollHeight)")
 
-search_box.send_keys('ChromeDriver')
-
-search_box.submit()
+# loadMoreGamesButton = driver.find_elements_by_class_name('Load more games')
 
 time.sleep(5) # Let the user actually see something!
 
